@@ -382,11 +382,9 @@ body.menu-open .site-header { background: transparent; color: var(--paper); bord
 
 /* ---------- Clients ---------- */
 .clients-head { max-width: 22ch; }
-.clients-grid { margin-top: clamp(3rem, 6vw, 5.5rem); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 3rem; }
-.client-group { border-top: 1px solid var(--paper); padding-top: 1.25rem; }
-.client-group h3 { color: var(--mute-on-dark); }
-.client-group ul { margin-top: 1.5rem; }
-.client-group li { font-family: var(--serif); font-variation-settings: var(--opsz-text); font-size: clamp(1.2rem, 1.65vw, 1.5rem); line-height: 1.55; }
+.logo-grid { margin-top: clamp(3rem, 6vw, 5.5rem); display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-top: 1px solid var(--line-on-dark); border-left: 1px solid var(--line-on-dark); }
+.logo-grid li { display: grid; place-items: center; aspect-ratio: 5 / 3; padding: .75rem; border-right: 1px solid var(--line-on-dark); border-bottom: 1px solid var(--line-on-dark); }
+.logo-grid img { width: calc(var(--w) * var(--logo-scale, 1)); max-width: 84%; height: auto; filter: invert(1); }
 
 /* ---------- Recognition ---------- */
 .awards { border-top: 1px solid var(--ink); }
@@ -537,7 +535,7 @@ fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
   .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .service:not(:nth-child(3n + 1)) { padding-left: 0; border-left: 0; }
   .service:nth-child(even) { padding-left: clamp(1.25rem, 2.5vw, 2.5rem); border-left: 1px solid var(--line); }
-  .clients-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .logo-grid { --logo-scale: .8; }
   .footer-brand { grid-column: 1 / -1; }
   .footer-col { grid-column: span 3; }
   .footer-col.wide { grid-column: span 6; }
@@ -552,6 +550,7 @@ fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
   .office + .office { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
   .culture-main, .culture-side { grid-column: 1 / -1; }
   .contact-intro, .contact-form { grid-column: 1 / -1; }
+  .logo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); --logo-scale: .82; }
   .case-film-text { grid-column: 1 / -1; }
   .case-film-control { grid-column: 1 / -1; justify-self: start; }
   .awards li { grid-template-columns: 4rem minmax(0, 1fr); }
@@ -576,7 +575,8 @@ fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
   .hero-toggle { min-width: 2.75rem; justify-content: flex-end; }
 }
 @media (max-width: 30rem) {
-  .clients-grid { grid-template-columns: 1fr; }
+  .logo-grid { --logo-scale: .58; }
+  .logo-grid li { padding: .4rem; }
   .hero-actions .btn { width: 100%; }
   .footer-offices { grid-template-columns: 1fr; }
 }
@@ -883,32 +883,50 @@ fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
       <h2 class="display clients-head" id="clients-title" style="margin-top:1.5rem;max-width:20ch">From founder-led startups to global brands.</h2>
       <p class="body-lg muted" style="margin-top:1.5rem;max-width:44ch">We work with companies at every stage of growth.</p>
 
-      <div class="clients-grid">
-        <div class="client-group">
-          <h3 class="label">Fashion</h3>
-          <ul>
-            <li>ASOS</li><li>Camper</li><li>Chico&rsquo;s</li><li>Derek Lam 10 Crosby</li><li>GU</li><li>John Varvatos</li><li>Luxottica</li><li>Max Mara</li><li>MCM</li><li>On</li><li>Persol</li><li>Printemps</li><li>Ray-Ban</li><li>Rebag</li><li>Rebecca Vallance</li>
-          </ul>
-        </div>
-        <div class="client-group">
-          <h3 class="label">Beauty</h3>
-          <ul>
-            <li>Coty</li><li>Drunk Elephant</li><li>Eilish Fragrances</li><li>Elizabeth Arden</li><li>Ever/Body</li><li>Henry Rose</li><li>L&rsquo;Or&eacute;al</li><li>Marc Jacobs Beauty</li><li>Paris Hilton Fragrances</li><li>Parlux</li><li>Shiseido</li>
-          </ul>
-        </div>
-        <div class="client-group">
-          <h3 class="label">Lifestyle &amp; Hospitality</h3>
-          <ul>
-            <li>21Seeds</li><li>Apl&oacute;s</li><li>Balloon Museum</li><li>Bathhouse</li><li>Diageo</li><li>Fontainebleau Las Vegas</li><li>Hyundai</li><li>IKEA</li><li>Marriott</li><li>Tomorrowland</li><li>WorldSprings</li>
-          </ul>
-        </div>
-        <div class="client-group">
-          <h3 class="label">Technology &amp; Wellness</h3>
-          <ul>
-            <li>CLEAR</li><li>Loop Earplugs</li><li>Metro Vein Centers</li><li>OnlyFans</li><li>Redesign Health</li><li>Tally Health</li><li>Tinder</li>
-          </ul>
-        </div>
-      </div>
+      <ul class="logo-grid">
+          <li><img src="assets/clients/grid/printemps.png" width="262" height="30" alt="Printemps" loading="lazy" decoding="async" style="--w:172px"></li>
+          <li><img src="assets/clients/grid/shiseido.png" width="290" height="49" alt="Shiseido" loading="lazy" decoding="async" style="--w:172px"></li>
+          <li><img src="assets/clients/grid/max-mara.png" width="238" height="44" alt="Max Mara" loading="lazy" decoding="async" style="--w:172px"></li>
+          <li><img src="assets/clients/grid/loreal.png" width="347" height="64" alt="L&rsquo;Or&eacute;al" loading="lazy" decoding="async" style="--w:172px"></li>
+          <li><img src="assets/clients/grid/coty.png" width="273" height="101" alt="Coty" loading="lazy" decoding="async" style="--w:123px"></li>
+          <li><img src="assets/clients/grid/mcm.png" width="203" height="129" alt="MCM" loading="lazy" decoding="async" style="--w:94px"></li>
+          <li><img src="assets/clients/grid/asos.png" width="285" height="84" alt="ASOS" loading="lazy" decoding="async" style="--w:122px"></li>
+          <li><img src="assets/clients/grid/ray-ban.png" width="327" height="180" alt="Ray-Ban" loading="lazy" decoding="async" style="--w:101px"></li>
+          <li><img src="assets/clients/grid/persol.png" width="271" height="178" alt="Persol" loading="lazy" decoding="async" style="--w:92px"></li>
+          <li><img src="assets/clients/grid/marc-jacobs-beauty.png" width="314" height="52" alt="Marc Jacobs Beauty" loading="lazy" decoding="async" style="--w:172px"></li>
+          <li><img src="assets/clients/grid/drunk-elephant.png" width="268" height="154" alt="Drunk Elephant" loading="lazy" decoding="async" style="--w:122px"></li>
+          <li><img src="assets/clients/grid/derek-lam-10-crosby.png" width="229" height="47" alt="Derek Lam 10 Crosby" loading="lazy" decoding="async" style="--w:165px"></li>
+          <li><img src="assets/clients/grid/john-varvatos.png" width="422" height="68" alt="John Varvatos" loading="lazy" decoding="async" style="--w:172px"></li>
+          <li><img src="assets/clients/grid/henry-rose.png" width="358" height="29" alt="Henry Rose" loading="lazy" decoding="async" style="--w:172px"></li>
+          <li><img src="assets/clients/grid/elizabeth-arden.png" width="422" height="78" alt="Elizabeth Arden" loading="lazy" decoding="async" style="--w:172px"></li>
+          <li><img src="assets/clients/grid/gu.png" width="171" height="87" alt="GU" loading="lazy" decoding="async" style="--w:88px"></li>
+          <li><img src="assets/clients/grid/on.png" width="99" height="198" alt="On" loading="lazy" decoding="async" style="--w:31px"></li>
+          <li><img src="assets/clients/grid/camper.png" width="309" height="155" alt="Camper" loading="lazy" decoding="async" style="--w:106px"></li>
+          <li><img src="assets/clients/grid/rebecca-vallance.png" width="600" height="54" alt="Rebecca Vallance" loading="lazy" decoding="async" style="--w:172px"></li>
+          <li><img src="assets/clients/grid/luxottica.png" width="361" height="79" alt="Luxottica" loading="lazy" decoding="async" style="--w:160px"></li>
+          <li><img src="assets/clients/grid/chicos.png" width="432" height="86" alt="Chico&rsquo;s" loading="lazy" decoding="async" style="--w:168px"></li>
+          <li><img src="assets/clients/grid/rebag.png" width="173" height="74" alt="Rebag" loading="lazy" decoding="async" style="--w:100px"></li>
+          <li><img src="assets/clients/grid/eilish-fragrances.png" width="262" height="52" alt="Eilish Fragrances" loading="lazy" decoding="async" style="--w:168px"></li>
+          <li><img src="assets/clients/grid/paris-hilton-fragrances.png" width="268" height="40" alt="Paris Hilton Fragrances" loading="lazy" decoding="async" style="--w:172px"></li>
+          <li><img src="assets/clients/grid/parlux.png" width="422" height="46" alt="Parlux" loading="lazy" decoding="async" style="--w:172px"></li>
+          <li><img src="assets/clients/grid/ever-body.png" width="365" height="134" alt="Ever/Body" loading="lazy" decoding="async" style="--w:124px"></li>
+          <li><img src="assets/clients/grid/ikea.png" width="382" height="67" alt="IKEA" loading="lazy" decoding="async" style="--w:150px"></li>
+          <li><img src="assets/clients/grid/marriott.png" width="192" height="60" alt="Marriott International" loading="lazy" decoding="async" style="--w:134px"></li>
+          <li><img src="assets/clients/grid/fontainebleau-las-vegas.png" width="288" height="96" alt="Fontainebleau Las Vegas" loading="lazy" decoding="async" style="--w:150px"></li>
+          <li><img src="assets/clients/grid/diageo.png" width="293" height="64" alt="Diageo" loading="lazy" decoding="async" style="--w:142px"></li>
+          <li><img src="assets/clients/grid/hyundai.png" width="280" height="173" alt="Hyundai" loading="lazy" decoding="async" style="--w:95px"></li>
+          <li><img src="assets/clients/grid/tomorrowland.png" width="239" height="128" alt="Tomorrowland" loading="lazy" decoding="async" style="--w:112px"></li>
+          <li><img src="assets/clients/grid/tinder.png" width="325" height="77" alt="Tinder" loading="lazy" decoding="async" style="--w:154px"></li>
+          <li><img src="assets/clients/grid/loop-earplugs.png" width="272" height="40" alt="Loop Earplugs" loading="lazy" decoding="async" style="--w:172px"></li>
+          <li><img src="assets/clients/grid/clear.png" width="429" height="142" alt="CLEAR" loading="lazy" decoding="async" style="--w:130px"></li>
+          <li><img src="assets/clients/grid/onlyfans.png" width="236" height="59" alt="OnlyFans" loading="lazy" decoding="async" style="--w:150px"></li>
+          <li><img src="assets/clients/grid/balloon-museum.png" width="304" height="76" alt="Balloon Museum" loading="lazy" decoding="async" style="--w:150px"></li>
+          <li><img src="assets/clients/grid/bathhouse.png" width="428" height="62" alt="Bathhouse" loading="lazy" decoding="async" style="--w:172px"></li>
+          <li><img src="assets/clients/grid/aplos.png" width="217" height="114" alt="Apl&oacute;s" loading="lazy" decoding="async" style="--w:103px"></li>
+          <li><img src="assets/clients/grid/worldsprings.png" width="441" height="208" alt="WorldSprings" loading="lazy" decoding="async" style="--w:109px"></li>
+          <li><img src="assets/clients/grid/redesign-health.png" width="238" height="62" alt="Redesign Health" loading="lazy" decoding="async" style="--w:147px"></li>
+          <li><img src="assets/clients/grid/metro-vein-centers.png" width="316" height="26" alt="Metro Vein Centers" loading="lazy" decoding="async" style="--w:172px"></li>
+      </ul>
     </div>
   </section>
 
