@@ -20,9 +20,9 @@
 
 <link rel="icon" href="assets/brand/favicon.jpeg" type="image/jpeg">
 <link rel="preload" as="image" href="assets/video/hero-poster.jpg" fetchpriority="high">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,401&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -127,8 +127,8 @@
   --line: #d6d6d6;
   --mute-on-dark: #ababab;
   --line-on-dark: #333333;
-  --serif: "DM Serif Display", Georgia, "Times New Roman", serif;
-  --serif-text: "DM Serif Text", Georgia, "Times New Roman", serif;
+  --serif: "Zodiak", Georgia, "Times New Roman", serif;
+  --serif-text: var(--serif);
   --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --gutter: clamp(1.25rem, 4vw, 4rem);
   --gap: clamp(1rem, 2vw, 2rem);
@@ -185,7 +185,7 @@ button { cursor: pointer; }
 }
 .display {
   font-family: var(--serif); font-weight: 400;
-  font-size: clamp(2.1rem, 4.6vw, 4.25rem); line-height: 1.06; letter-spacing: -.01em;
+  font-size: clamp(2rem, 4.3vw, 4rem); line-height: 1.08; letter-spacing: -.022em;
 }
 .statement {
   font-family: var(--serif); font-weight: 400;
@@ -232,11 +232,10 @@ button { cursor: pointer; }
   padding-inline: var(--gutter);
 }
 .brand { display: inline-flex; align-items: center; text-decoration: none; padding-block: .5rem; }
-.wordmark {
-  display: block; width: 7.25rem; aspect-ratio: 973 / 281; background: currentColor;
-  -webkit-mask: url("assets/brand/factory-wordmark-black.png") center / contain no-repeat;
-          mask: url("assets/brand/factory-wordmark-black.png") center / contain no-repeat;
-}
+.wordmark { display: block; width: 7.25rem; height: auto; }
+.site-header .wordmark { filter: invert(1); transition: filter .25s ease; }
+.site-header.is-solid .wordmark { filter: none; }
+body.menu-open .site-header .wordmark { filter: invert(1); }
 .primary-nav ul { display: flex; align-items: center; gap: clamp(1.25rem, 2.4vw, 2.5rem); }
 .primary-nav a {
   display: inline-block; padding-block: .75rem; text-decoration: none;
@@ -283,7 +282,7 @@ body.menu-open .site-header { background: transparent; color: var(--paper); bord
   background: linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.62));
 }
 .hero-inner {
-  width: min(100% - (var(--gutter) * 2), 68rem);
+  width: min(100% - (var(--gutter) * 2), 74rem);
   padding-block: calc(var(--header-h) + 1.5rem) 4.5rem;
   display: flex; flex-direction: column; align-items: center;
 }
@@ -294,8 +293,8 @@ body.menu-open .site-header { background: transparent; color: var(--paper); bord
 .hero .eyebrow span[aria-hidden] { opacity: .7; }
 .hero h1 {
   font-family: var(--serif); font-weight: 400;
-  font-size: clamp(2.2rem, min(6.1vw, 10.5vh), 6rem);
-  line-height: 1.04; letter-spacing: -.012em; text-wrap: balance;
+  font-size: clamp(2.2rem, min(5.5vw, 10vh), 5.5rem);
+  line-height: 1.06; letter-spacing: -.022em; text-wrap: balance;
 }
 .hero-sub {
   margin-top: clamp(1rem, 2.6vh, 1.75rem);
@@ -435,7 +434,7 @@ body.menu-open .site-header { background: transparent; color: var(--paper); bord
 /* ---------- Contact ---------- */
 .contact-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 3.5rem; }
 .contact-intro { grid-column: 1 / span 5; }
-.contact-intro .display { font-size: clamp(3rem, 7.5vw, 7rem); line-height: 1; letter-spacing: -.015em; margin-top: 1.5rem; }
+.contact-intro .display { font-size: clamp(3rem, 7.5vw, 7rem); line-height: 1; letter-spacing: -.03em; margin-top: 1.5rem; }
 .contact-intro p.body-lg { margin-top: 1.75rem; max-width: 34ch; color: var(--mute-on-dark); }
 .contact-direct { margin-top: 2.5rem; display: grid; gap: .35rem; }
 .contact-direct a { font-family: var(--serif-text); font-size: clamp(1.3rem, 2vw, 1.75rem); text-underline-offset: .25em; text-decoration-thickness: 1px; justify-self: start; }
@@ -569,7 +568,7 @@ fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
   .cookie { left: .75rem; bottom: .75rem; width: calc(100vw - 1.5rem); padding: 1.25rem; }
   .hero .eyebrow-lead { flex-basis: 100%; }
   .hero .eyebrow-break { display: none; }
-  .hero h1 { font-size: clamp(1.7rem, min(9vw, 6.2vh), 2.75rem); }
+  .hero h1 { font-size: clamp(1.6rem, min(8.4vw, 6vh), 2.6rem); }
   .hero-toggle span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .hero-toggle { min-width: 2.75rem; justify-content: flex-end; }
 }
@@ -588,7 +587,7 @@ fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
 <header class="site-header" id="site-header">
   <div class="header-inner">
     <a class="brand" href="#top" aria-label="Factory PR, back to top">
-      <span class="wordmark" aria-hidden="true"></span>
+      <img class="wordmark" src="assets/brand/factory-wordmark-black.png" width="973" height="281" alt="">
     </a>
     <div class="header-right">
       <nav class="primary-nav" aria-label="Primary">
@@ -1150,7 +1149,7 @@ fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <span class="wordmark" role="img" aria-label="Factory PR"></span>
+        <img class="wordmark" src="assets/brand/factory-wordmark-white.png" width="973" height="281" alt="Factory PR" loading="lazy">
         <p>A communications agency that moves culture and builds brands.</p>
       </div>
       <nav class="footer-col" aria-label="Footer">
