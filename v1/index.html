@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Factory PR</title>
+<meta name="description" content="Factory is a communications agency that moves culture and builds brands, with offices in New York, Los Angeles and Miami.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+:root{
+  --paper:#f3f3f0;
+  --paper-2:#e7e6e1;
+  --card:#ffffff;
+  --ink:#141414;
+  --ink-soft:#4d4d4a;
+  --line:#cfcec8;
+  --accent:#2336c8;
+  --accent-ink:#ffffff;
+  --blush:#f0d5cc;
+  --night:#111111;
+  --on-night:#f3f3f0;
+  --on-night-soft:#b9b8b2;
+  --focus:#ffb000;
+  --display:"Big Shoulders Display","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --gutter:clamp(16px,4vw,48px);
+  --max:1280px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#121212;--paper-2:#1b1b1b;--card:#1f1f1f;--ink:#f1f1ee;--ink-soft:#b3b2ad;--line:#333331;--accent:#8a98ff;--accent-ink:#111111;--blush:#3a2a26;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121212;--paper-2:#1b1b1b;--card:#1f1f1f;--ink:#f1f1ee;--ink-soft:#b3b2ad;--line:#333331;--accent:#8a98ff;--accent-ink:#111111;--blush:#3a2a26;color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;height:auto;display:block}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.95;margin:0;text-wrap:balance;text-transform:uppercase;letter-spacing:.005em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--focus);color:#111;padding:10px 16px;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.label{font-size:.8rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.lede{font-size:clamp(1.15rem,1.7vw,1.4rem);line-height:1.5;color:var(--ink-soft);max-width:54ch}
+section{padding-block:clamp(72px,9vw,128px)}
+.sec-head{display:grid;gap:16px;margin-bottom:clamp(36px,5vw,64px);max-width:60rem}
+.sec-head h2{font-size:clamp(2.8rem,7vw,5.6rem)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:700 .98rem var(--body);letter-spacing:.04em;text-transform:uppercase;padding:16px 28px;text-decoration:none;border:2px solid transparent;border-radius:0;cursor:pointer;transition:background .2s,color .2s}
+.btn-accent{background:var(--accent);color:var(--accent-ink)}
+.btn-accent:hover{background:var(--ink);color:var(--paper)}
+.btn-line{border-color:currentColor;color:inherit;background:transparent}
+
+.site-head{position:fixed;inset:0 0 auto 0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .3s,box-shadow .3s}
+.site-head .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;height:76px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#ffffff}
+.logo img{height:36px;width:auto;transition:filter .3s}
+.logo span{font-family:var(--display);font-weight:900;font-size:1.7rem;letter-spacing:.08em;text-transform:uppercase}
+.site-head.solid{background:var(--paper);box-shadow:0 1px 0 var(--line)}
+.site-head.solid .logo{color:var(--ink)}
+.site-head.solid .logo img{filter:invert(1)}
+.nav{display:flex;align-items:center;gap:clamp(18px,2.4vw,34px)}
+.nav a{color:#ffffff;text-decoration:none;font-weight:600;font-size:.88rem;letter-spacing:.14em;text-transform:uppercase;padding-block:6px;border-bottom:2px solid transparent}
+.nav a:hover{border-bottom-color:currentColor}
+.site-head.solid .nav a{color:var(--ink)}
+.nav .nav-cta{border:2px solid currentColor;padding:9px 16px}
+.menu-btn{display:none;background:none;border:0;color:#ffffff;padding:8px;cursor:pointer}
+.site-head.solid .menu-btn{color:var(--ink)}
+@media (max-width:920px){
+  .menu-btn{display:inline-flex}
+  .nav{position:fixed;inset:calc(76px + env(safe-area-inset-top,0px)) 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);padding:8px var(--gutter) 24px;box-shadow:0 14px 28px rgba(0,0,0,.2)}
+  .nav a,.site-head .nav a{color:var(--ink);padding-block:14px;border-bottom:1px solid var(--line)}
+  .nav .nav-cta{margin-top:12px;text-align:center}
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .site-head.solid .logo img{filter:none}}
+:root[data-theme="dark"] .site-head.solid .logo img{filter:none}
+@media (min-width:921px){.nav[hidden]{display:flex!important}}
+
+.hero{position:relative;min-height:100vh;min-height:100svh;display:grid;place-items:center;text-align:center;color:#ffffff;background:#111;overflow:hidden;padding:calc(100px + env(safe-area-inset-top,0px)) var(--gutter) 84px}
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,17,17,.6) 0%,rgba(17,17,17,.4) 50%,rgba(17,17,17,.75) 100%)}
+.hero-inner{position:relative;z-index:2;display:grid;justify-items:center;gap:26px;max-width:72rem}
+.hero .eyebrow{font-size:.85rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:#f0d5cc}
+.hero h1{font-size:clamp(3.2rem,11vw,9.5rem);font-weight:900;line-height:.86}
+.hero p{font-size:clamp(1.15rem,2vw,1.5rem);max-width:40rem;color:#ecebe6}
+.hero-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:6px}
+.hero .btn-accent{background:#ffffff;color:#111}
+.hero .btn-accent:hover{background:#f0d5cc}
+.hero .btn-line:hover{background:#ffffff;color:#111}
+.video-toggle{position:absolute;z-index:3;right:var(--gutter);bottom:24px;display:inline-flex;align-items:center;gap:8px;background:rgba(17,17,17,.55);color:#ffffff;border:1px solid rgba(255,255,255,.5);padding:8px 14px;font:600 .82rem var(--body);cursor:pointer}
+.video-toggle:hover{background:rgba(17,17,17,.85)}
+
+.intro-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,6vw,96px);align-items:start}
+@media (max-width:900px){.intro-grid{grid-template-columns:1fr}}
+.intro-big{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,4.8vw,4rem);line-height:1;text-transform:uppercase}
+.intro-big em{font-style:normal;color:var(--accent)}
+.intro-copy{display:grid;gap:18px;color:var(--ink-soft);font-size:1.1rem}
+.industries{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-wrap:wrap;gap:6px 22px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.08em;font-size:.88rem}
+.industries li{margin:0}
+
+.work{background:var(--paper-2)}
+.case{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:center;padding-block:clamp(36px,5vw,60px);border-top:1px solid var(--line)}
+.case:first-of-type{border-top:2px solid var(--ink)}
+.case:nth-of-type(even) .media{order:2}
+@media (max-width:900px){.case{grid-template-columns:1fr}.case:nth-of-type(even) .media{order:0}}
+.media{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.media img,.media video{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;background:var(--card)}
+.media.one{grid-template-columns:1fr}
+.media.one img,.media.one video{aspect-ratio:16/10}
+.case .copy{display:grid;gap:14px;align-content:center}
+.case .client{height:40px;width:auto;max-width:180px;object-fit:contain;object-position:left;margin-bottom:6px}
+.case .client.on-dark{background:#111;padding:8px 12px;height:48px;box-sizing:content-box}
+.case h3{font-size:clamp(2rem,3.6vw,3rem)}
+.case p{color:var(--ink-soft);font-size:1.05rem;max-width:46ch}
+.tags{font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.more-work{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,32px);margin-top:clamp(36px,5vw,60px)}
+@media (max-width:900px){.more-work{grid-template-columns:1fr}}
+.more-work article{background:var(--night);color:var(--on-night);padding:clamp(24px,3vw,36px);display:grid;gap:14px;align-content:start}
+.more-work img{height:44px;width:auto;max-width:170px;object-fit:contain;object-position:left}
+.more-work h3{font-size:1.9rem}
+.more-work p{color:var(--on-night-soft)}
+.more-work .tags{color:#f0d5cc}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(40px,5vw,64px) clamp(28px,4vw,56px)}
+@media (max-width:900px){.services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.services-grid{grid-template-columns:1fr}}
+.services-grid article{display:grid;gap:18px;align-content:start;padding-top:22px;border-top:2px solid var(--ink)}
+.services-grid svg{width:84px;height:84px;color:var(--accent)}
+.services-grid h3{font-size:clamp(1.8rem,2.8vw,2.3rem)}
+.ringmaster{margin-top:clamp(56px,7vw,96px);font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.6vw,3.8rem);line-height:1.02;text-transform:uppercase;max-width:22ch}
+.ringmaster em{font-style:normal;color:var(--accent)}
+
+.clients{background:var(--night);color:var(--on-night)}
+.clients .label{color:#f0d5cc}
+.clients .sec-head h2{color:var(--on-night)}
+.clients .lede{color:var(--on-night-soft)}
+.logo-wall{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:#2a2a2a;border:1px solid #2a2a2a}
+@media (max-width:1000px){.logo-wall{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:560px){.logo-wall{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.logo-wall li{margin:0;background:#ffffff;display:grid;place-items:center;padding:18px;aspect-ratio:3/2}
+.logo-wall img{max-height:64px;width:auto;object-fit:contain}
+
+.awards-list{list-style:none;padding:0;margin:0;border-top:2px solid var(--ink)}
+.awards-list li{margin:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) 80px;gap:20px;padding-block:20px;border-bottom:1px solid var(--line);align-items:baseline}
+.awards-list b{font-family:var(--display);font-weight:800;font-size:1.6rem;text-transform:uppercase;line-height:1}
+.awards-list span{color:var(--ink-soft)}
+.awards-list time{font-weight:700;font-variant-numeric:tabular-nums;text-align:right;color:var(--accent)}
+@media (max-width:700px){.awards-list li{grid-template-columns:1fr auto}.awards-list span{grid-column:1/-1;grid-row:2}}
+
+.contact{background:var(--blush)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,6vw,88px)}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+.offices{display:grid;gap:26px;align-content:start}
+.offices article{padding-top:16px;border-top:2px solid var(--ink)}
+.offices h3{font-size:2rem;margin-bottom:8px}
+.offices p{color:var(--ink-soft)}
+.offices a{color:var(--ink);font-weight:600}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-content:start}
+.field{display:grid;gap:8px}
+.field.full{grid-column:1/-1}
+label{font-weight:700;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
+input{font:inherit;color:var(--ink);background:var(--paper);border:0;border-bottom:2px solid var(--ink);padding:14px 12px;width:100%;border-radius:0}
+input:focus{outline:3px solid var(--focus);outline-offset:1px}
+@media (max-width:560px){form{grid-template-columns:1fr}}
+form .btn{justify-self:start}
+.form-status{grid-column:1/-1;min-height:1.5em;font-weight:600}
+
+.site-foot{background:var(--night);color:var(--on-night-soft);padding-block:56px calc(40px + env(safe-area-inset-bottom,0px));font-size:.95rem}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px}
+.site-foot .logo{color:var(--on-night)}
+.site-foot a{color:var(--on-night)}
+.social{display:flex;gap:18px}
+.social a{display:inline-flex}
+.social svg{width:26px;height:26px}
+.foot-meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:28px;padding-top:24px;border-top:1px solid #2e2e2e}
+.foot-meta button{background:none;border:0;color:var(--on-night);text-decoration:underline;font:inherit;cursor:pointer;padding:0}
+
+.cookie{position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;width:min(380px,calc(100vw - 32px));background:#ffffff;color:#141414;border:2px solid #141414;box-shadow:0 18px 40px rgba(0,0,0,.28);padding:24px;display:grid;gap:14px}
+.cookie h2{font-size:1.8rem}
+.cookie p{font-size:.93rem;color:#4d4d4a}
+.cookie .row{display:flex;flex-wrap:wrap;gap:10px}
+.cookie .btn{padding:11px 16px;font-size:.82rem}
+.cookie .btn-accent{background:#2336c8;color:#ffffff}
+.cookie .btn-accent:hover{background:#141414}
+.cookie .btn-line{color:#141414}
+.cookie .btn-line:hover{background:#141414;color:#ffffff}
+.cookie fieldset{border:1px solid #cfcec8;padding:12px 14px;margin:0;display:grid;gap:10px}
+.cookie legend{font-weight:700;font-size:.85rem;padding-inline:4px}
+.cookie label{display:flex;gap:10px;align-items:center;font-size:.93rem;font-weight:400;letter-spacing:0;text-transform:none}
+.cookie input[type=checkbox]{width:20px;height:20px;accent-color:#2336c8}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="site-head" id="top">
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="Factory PR, back to top">
+      <img src="assets/brand/F_MARK_WHITE.png" alt="" width="36" height="36">
+      <span aria-hidden="true">Factory</span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">Menu</span>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#clients">Clients</a>
+      <a href="#about">About</a>
+      <a href="https://www.factorypr.com/careers/">Careers</a>
+      <a class="nav-cta" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+  <img class="poster" src="assets/work/henry-rose-1.jpg" alt="">
+  <video id="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/work/henry-rose-1.jpg" aria-hidden="true">
+    <source src="assets/video/TRANSFORMATION_ONLY.mp4" type="video/mp4">
+  </video>
+  <div class="hero-inner">
+    <p class="eyebrow">New York &middot; Los Angeles &middot; Miami</p>
+    <h1 id="hero-title">We move culture and build brands</h1>
+    <p>We are a communications agency that moves culture and builds brands. And we build them bigger.</p>
+    <div class="hero-cta">
+      <a class="btn btn-accent" href="#contact">Start a Conversation</a>
+      <a class="btn btn-line" href="#work">See the Work</a>
+    </div>
+  </div>
+  <button class="video-toggle" type="button" id="video-toggle" aria-pressed="false">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/></svg>
+    <span>Pause background video</span>
+  </button>
+</section>
+
+<section id="about" aria-labelledby="about-title">
+  <div class="wrap intro-grid">
+    <div>
+      <p class="label" style="margin-bottom:18px">About Factory</p>
+      <h2 id="about-title" class="intro-big">The strategic discipline of a consultancy. <em>The instinct of a newsroom.</em> The relationships that come from living inside the industries we serve.</h2>
+    </div>
+    <div class="intro-copy">
+      <p>Factory is a communications agency with deep insight and an expansive network across technology, wellness, beauty, fashion, lifestyle, and consumer industries.</p>
+      <p>We know where people spend their time, what fills their feeds, what earns their attention, and what drives conversation.</p>
+      <p>Factory is of the moment, but also plays a long game. We think beyond launches and campaign cycles, helping brands build relevance, credibility, and momentum over time.</p>
+      <p>From founder-led startups to global brands, we work with companies at every stage of growth.</p>
+      <ul class="industries" aria-label="Industries we serve">
+        <li>Technology</li><li>Wellness</li><li>Beauty</li><li>Fashion</li><li>Lifestyle</li><li>Consumer</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Selected Work</p>
+      <h2 id="work-title">Brands we built bigger</h2>
+    </div>
+
+    <article class="case" aria-labelledby="c1">
+      <div class="media">
+        <img src="assets/work/henry-rose-1.jpg" alt="Henry Rose fragrance campaign" loading="lazy" decoding="async">
+        <img src="assets/work/henry-rose-2.jpg" alt="Henry Rose fragrance bottles" loading="lazy" decoding="async">
+      </div>
+      <div class="copy">
+        <img class="client" src="assets/work/henryrose_500.png" alt="Henry Rose" loading="lazy" decoding="async">
+        <h3 id="c1">Pioneering the Clean Fragrance Landscape</h3>
+        <p>We built, launched, and continue to grow Henry Rose with Michelle Pfeiffer, establishing it as the industry leader and standard in clean, transparent fragrance.</p>
+        <p class="tags">PR / Digital / Influencer / VIP / Events</p>
+      </div>
+    </article>
+
+    <article class="case" aria-labelledby="c2">
+      <div class="media">
+        <img src="assets/work/ikea.jpg" alt="IKEA campaign moment" loading="lazy" decoding="async">
+        <img src="assets/work/ikea2.jpg" alt="IKEA media event" loading="lazy" decoding="async">
+      </div>
+      <div class="copy">
+        <img class="client" src="assets/work/IKEA_logo.jpg" alt="IKEA" loading="lazy" decoding="async">
+        <h3 id="c2">Reimagining IKEA as Sustainable</h3>
+        <p>We redefined IKEA's cultural relevance through bold media opportunities.</p>
+        <p class="tags">PR / Influencer / Partnerships / Events</p>
+      </div>
+    </article>
+
+    <article class="case" aria-labelledby="c3">
+      <div class="media one">
+        <video class="case-video" autoplay muted loop playsinline preload="metadata" aria-label="Fontainebleau Las Vegas grand opening highlights">
+          <source src="assets/video/fountainebleau.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="copy">
+        <img class="client on-dark" src="assets/work/FBLV-logo-White.png" alt="Fontainebleau Las Vegas" loading="lazy" decoding="async">
+        <h3 id="c3">Redefining Hospitality Launches</h3>
+        <p>Our work fueled an 800% follower increase and massive engagement during the grand opening.</p>
+        <p class="tags">Digital / Campaign / Events</p>
+      </div>
+    </article>
+
+    <article class="case" aria-labelledby="c4">
+      <div class="media">
+        <img src="assets/work/asos-1.jpg" alt="ASOS fashion moment" loading="lazy" decoding="async">
+        <img src="assets/work/asos-2.jpg" alt="ASOS event" loading="lazy" decoding="async">
+      </div>
+      <div class="copy">
+        <img class="client" src="assets/work/ASOS_LOGO_III.jpg" alt="ASOS" loading="lazy" decoding="async">
+        <h3 id="c4">Building Fashion's Most Talked About Moments</h3>
+        <p>As the AOR for ten years, we have expanded ASOS' influence in the US through strategic public relations.</p>
+        <p class="tags">PR / VIP / Influencer / Events / Partnerships</p>
+      </div>
+    </article>
+
+    <article class="case" aria-labelledby="c5">
+      <div class="media">
+        <img src="assets/work/gu-1.jpg" alt="GU fashion launch" loading="lazy" decoding="async">
+        <img src="assets/work/gu-2.jpg" alt="GU store experience" loading="lazy" decoding="async">
+      </div>
+      <div class="copy">
+        <img class="client" src="assets/work/GU-logo.jpg" alt="GU" loading="lazy" decoding="async">
+        <h3 id="c5">Bringing a Japanese Fashion Powerhouse to the US</h3>
+        <p>We introduced GU, Fast Retailing's trend-driven sister brand to UNIQLO, to the U.S.</p>
+        <p class="tags">PR / Influencer / Events / Partnerships</p>
+      </div>
+    </article>
+
+    <article class="case" aria-labelledby="c6">
+      <div class="media">
+        <img src="assets/work/tally1.jpg" alt="Tally Health launch" loading="lazy" decoding="async">
+        <img src="assets/work/tally2.jpg" alt="Tally Health event" loading="lazy" decoding="async">
+      </div>
+      <div class="copy">
+        <img class="client" src="assets/work/TALLY-LOGO.png" alt="Tally Health" loading="lazy" decoding="async">
+        <h3 id="c6">Defining the Narrative Around Biological Age</h3>
+        <p>We launched Tally Health, co-founded by David Sinclair, as the most coveted platform for longevity science.</p>
+        <p class="tags">PR / Events / Influencer</p>
+      </div>
+    </article>
+
+    <div class="more-work">
+      <article aria-labelledby="c7">
+        <img src="assets/work/Loop-Earplugs-logo-white.png" alt="Loop Earplugs" loading="lazy" decoding="async">
+        <h3 id="c7">Elevating a Utility Product into a Time 100 Wellness Brand</h3>
+        <p>We redefined hearing protection with Loop Earplugs, transforming it into a must-have lifestyle accessory.</p>
+        <p class="tags">PR / Events / Influencer</p>
+      </article>
+      <article aria-labelledby="c8">
+        <img src="assets/work/21Seeds_Logo_White.png" alt="21Seeds" loading="lazy" decoding="async">
+        <h3 id="c8">Turning Spirits into Lifestyle Icons</h3>
+        <p>With 21Seeds, the female-founded fruit-infused tequila brand, we drive media buzz, events, and brand collaborations.</p>
+        <p class="tags">PR / Events / Partnerships / Campaign</p>
+      </article>
+      <article aria-labelledby="c9">
+        <img src="assets/work/On-Logo-White.png" alt="On Running" loading="lazy" decoding="async">
+        <h3 id="c9">Launching a Challenger Brand to Market Dominance</h3>
+        <p>We launched On Running in the U.S. with dynamic media activations, strategic seeding, and immersive experiences.</p>
+        <p class="tags">PR / Events / Influencer</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="services" aria-labelledby="svc-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Services</p>
+      <h2 id="svc-title">What we do</h2>
+    </div>
+    <div class="services-grid">
+      <article>
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 34v16h10l26 16V18L20 34Z"/><path d="M20 50l6 20h8l-4-17"/><path d="M58 30c4 3 6 7 6 12s-2 9-6 12M66 22c7 5 11 12 11 20s-4 15-11 20"/></svg>
+        <h3>Public Relations &amp; Communications</h3>
+      </article>
+      <article>
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="42" cy="42" r="30"/><circle cx="42" cy="42" r="18"/><circle cx="42" cy="42" r="6"/><path d="M42 42 70 14M62 14h8v8"/></svg>
+        <h3>Brand Positioning</h3>
+      </article>
+      <article>
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="28" r="12"/><path d="M10 72c0-13 10-22 22-22s22 9 22 22"/><path d="m62 18 3 7 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z"/><path d="M58 50c9 2 15 10 15 22"/></svg>
+        <h3>Influencer &amp; Creator Partnerships</h3>
+      </article>
+      <article>
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="8" width="52" height="68" rx="8"/><rect x="24" y="18" width="16" height="16"/><rect x="44" y="18" width="16" height="16"/><rect x="24" y="38" width="16" height="16"/><rect x="44" y="38" width="16" height="16"/><path d="M36 66h12"/></svg>
+        <h3>Social Strategy</h3>
+      </article>
+      <article>
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 74h64M10 74V10"/><path d="M18 60l14-16 12 10 24-30"/><path d="M58 24h10v10"/><path d="M24 74V64M38 74V58M52 74V50M66 74V40" opacity=".5"/></svg>
+        <h3>Performance PR</h3>
+      </article>
+      <article>
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M42 10 12 72h60Z"/><path d="M42 10v62M30 36l-8 36M54 36l8 36"/><path d="M6 72h72"/><circle cx="42" cy="8" r="2"/></svg>
+        <h3>Experiential</h3>
+      </article>
+    </div>
+    <p class="ringmaster">Specialists in Brand Transformation, we are nimble builders and storytellers, <em>ringmasters skillfully navigating an ever-changing terrain.</em></p>
+  </div>
+</section>
+
+<section class="clients" id="clients" aria-labelledby="clients-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Clients</p>
+      <h2 id="clients-title">In good company</h2>
+      <p class="lede">An award-winning, creative communications and marketing agency shaping the success of many of the world's most respected brands.</p>
+    </div>
+    <ul class="logo-wall" id="logo-wall"></ul>
+  </div>
+</section>
+
+<section aria-labelledby="awards-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Recognition</p>
+      <h2 id="awards-title">Awards</h2>
+    </div>
+    <ul class="awards-list">
+      <li><b>Beauty Matter Next Awards</b><span>Winner, Best Public Relations Agency</span><time datetime="2022">2022</time></li>
+      <li><b>PR News Agency Elite</b><span>Top 100</span><time datetime="2023">2023</time></li>
+      <li><b>PR News Platinum PR</b><span>Finalist, Agency of the Year</span><time datetime="2022">2022</time></li>
+      <li><b>Titan Business Awards</b><span>Agency of the Year</span><time datetime="2022">2022</time></li>
+      <li><b>The PR Net</b><span>The PR Net 100</span><time datetime="2022">2022</time></li>
+      <li><b>NYX MarCom Awards</b><span>Media Relations &amp; Publicity Campaign</span><time datetime="2022">2022</time></li>
+      <li><b>Forbes</b><span>America's Best PR Agencies</span><time datetime="2021">2021</time></li>
+      <li><b>Inc. 5000</b><span>America's Fastest-Growing Private Companies</span><time datetime="2021">2021</time></li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Contact</p>
+      <h2 id="contact-title">Let's build yours bigger</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="offices">
+        <article>
+          <h3>New York</h3>
+          <p>920 Broadway, 12th Floor<br>New York, NY 10010<br><a href="tel:+12129419394">212.941.9394</a></p>
+        </article>
+        <article>
+          <h3>Los Angeles</h3>
+          <p>8201 Beverly Blvd, Ste 302<br>Los Angeles, CA 90048<br><a href="tel:+13236581112">323.658.1112</a></p>
+        </article>
+        <article>
+          <h3>Miami</h3>
+          <p>Near the Design District and Wynwood Walls<br>Address coming soon</p>
+        </article>
+        <article>
+          <h3>Email</h3>
+          <p><a href="mailto:hello@factorypr.com">hello@factorypr.com</a></p>
+        </article>
+      </div>
+      <form id="contact-form" novalidate>
+        <div class="field"><label for="company">Company Name <span aria-hidden="true">*</span></label><input id="company" name="company" type="text" autocomplete="organization" required aria-required="true"></div>
+        <div class="field"><label for="website">Company Website</label><input id="website" name="website" type="url" autocomplete="url" inputmode="url"></div>
+        <div class="field"><label for="cname">Contact Name <span aria-hidden="true">*</span></label><input id="cname" name="cname" type="text" autocomplete="name" required aria-required="true"></div>
+        <div class="field"><label for="email">Email <span aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" required aria-required="true"></div>
+        <button class="btn btn-accent" type="submit">Send</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <a class="logo" href="#top" aria-label="Factory PR, back to top">
+        <img src="assets/brand/F_MARK_WHITE.png" alt="" width="36" height="36" style="filter:none">
+        <span aria-hidden="true">Factory</span>
+      </a>
+      <div class="social">
+        <a href="https://www.instagram.com/factorypr/" target="_blank" rel="noopener" aria-label="Factory PR on Instagram (opens in new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.linkedin.com/company/factory-pr/" target="_blank" rel="noopener" aria-label="Factory PR on LinkedIn (opens in new tab)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
+        <a href="https://www.facebook.com/FACTORYPR/" target="_blank" rel="noopener" aria-label="Factory PR on Facebook (opens in new tab)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.5V14h2.7v8Z"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-meta">
+      <p>&copy; 2026 Factory PR, Inc.</p>
+      <p>Concept mockup, not a live site</p>
+      <p><a href="https://theclaymedia.com" target="_blank" rel="noopener">Site by The Clay Media</a></p>
+      <p><a href="https://www.factorypr.com/privacy-policy/">Privacy Policy</a></p>
+      <p><a href="https://www.factorypr.com/terms-of-service/">Terms of Service</a></p>
+      <p><button type="button" id="cookie-open">Cookie settings</button></p>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-desc" hidden>
+  <h2 id="cookie-title">Cookies</h2>
+  <p id="cookie-desc">We use essential cookies to make this site work. With your permission we also use analytics cookies to understand how visitors use the site.</p>
+  <fieldset id="cookie-prefs" hidden>
+    <legend>Cookie preferences</legend>
+    <label><input type="checkbox" id="ck-essential" checked disabled> Essential (always on)</label>
+    <label><input type="checkbox" id="ck-analytics"> Analytics</label>
+    <label><input type="checkbox" id="ck-marketing"> Marketing</label>
+  </fieldset>
+  <div class="row">
+    <button class="btn btn-accent" type="button" id="ck-accept">Accept all</button>
+    <button class="btn btn-line" type="button" id="ck-reject">Essential only</button>
+    <button class="btn btn-line" type="button" id="ck-manage" aria-expanded="false" aria-controls="cookie-prefs">Manage</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var U='assets/clients/';
+  var logos=[['Asos','ASOS2Blogo.png'],['Henry Rose','henryrose.jpg'],['Ikea','Ikea-1.jpg'],['Parlux','Parlux.jpg'],['Fontainebleau Las Vegas','FBLV.png'],['Ray Ban','Ray-Ban.png'],['Rebecca Vallance','rv-logo-black.svg'],['Rebag','Rebaglogo-300x180-1.jpg'],['Marriott','Marriott.jpg'],['MCM','MCM-1.png'],['John Varvatos','JV.jpg'],['On Running','onrunning.jpg'],['OnlyFans','OnlyFans.jpg'],['Paris Hilton Fragrances','PH-Fragrances.png'],['Balloon Museum','Balloon-Museum.png'],['Diageo / 21 Seeds','Diageo.png'],['Persol','Persol.png'],['Billie Eilish Fragrances','Eilish.jpg'],['Elizabeth Arden','EA.jpg'],['Camper','camper.jpg'],["L'Oreal",'Loreal.png'],['Metro Vein Centers','Metro-Vein.png'],['Derek Lam','Derek-Lam.png'],['Luxottica','Luxottica.png'],['Tomorrowland','Tomorrowland.jpg'],['Loop Earplugs','Loop.png'],['Tinder','tinder.jpg'],['Clear','Clear.png'],['GU Global','GU.png'],['Marc Jacobs Beauty Fragrance','MJB.png'],['Redesign Health','RedesignHealth.jpg'],['Aplos','Aplos.jpg'],['Bathhouse','Bathhouse.png'],['Max Mara','Max-Mara.png'],['Printemps','Printemps.png'],["Chico's",'Chicos.jpg'],['Drunk Elephant','Drunk-Elephant.png'],['Shiseido','Shiseido.png'],['Hyundai','hyundai.jpg'],['WorldSprings','Worldsprings-1.jpg'],['Ever Body','ever_bodylogo.jpg'],['Coty','Coty.png']];
+  document.getElementById('logo-wall').innerHTML=logos.map(function(l){return '<li><img src="'+U+l[1]+'" alt="'+l[0].replace(/"/g,'&quot;')+'" loading="lazy" decoding="async"></li>'}).join('');
+
+  var head=document.querySelector('.site-head'),btn=document.querySelector('.menu-btn'),nav=document.getElementById('site-nav');
+  var mq=window.matchMedia('(max-width:920px)');
+  function onScroll(){head.classList.toggle('solid',window.scrollY>40||(mq.matches&&!nav.hidden))}
+  function setMenu(open){btn.setAttribute('aria-expanded',String(open));nav.hidden=!open;onScroll()}
+  function syncMq(){if(mq.matches){setMenu(false)}else{nav.hidden=false;btn.setAttribute('aria-expanded','false');onScroll()}}
+  syncMq();if(mq.addEventListener)mq.addEventListener('change',syncMq);
+  btn.addEventListener('click',function(){setMenu(btn.getAttribute('aria-expanded')!=='true')});
+  nav.addEventListener('click',function(e){if(e.target.closest('a')&&mq.matches)setMenu(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mq.matches&&!nav.hidden){setMenu(false);btn.focus()}});
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var v=document.getElementById('hero-video'),vt=document.getElementById('video-toggle');
+  var cv=document.querySelectorAll('.case-video');
+  function vlabel(paused){vt.setAttribute('aria-pressed',String(paused));vt.querySelector('span').textContent=paused?'Play background video':'Pause background video';vt.querySelector('svg').innerHTML=paused?'<path d="M4 2l10 6-10 6z"/>':'<rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/>'}
+  if(reduce){v.removeAttribute('autoplay');v.pause();vlabel(true);cv.forEach(function(c){c.removeAttribute('autoplay');c.pause();c.setAttribute('controls','')})}
+  vt.addEventListener('click',function(){if(v.paused){var p=v.play();if(p&&p.catch)p.catch(function(){});vlabel(false)}else{v.pause();vlabel(true)}});
+
+  var form=document.getElementById('contact-form'),status=document.getElementById('form-status');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();var bad=null;
+    form.querySelectorAll('[required]').forEach(function(f){var ok=f.value.trim()!==''&&(f.type!=='email'||/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value));f.setAttribute('aria-invalid',String(!ok));if(!ok&&!bad)bad=f});
+    if(bad){status.textContent='Please complete '+bad.previousElementSibling.textContent.replace('*','').trim()+' with a valid entry.';bad.focus();return}
+    status.textContent='Thanks. This is a concept mockup, so your message was not sent.';form.reset();
+  });
+
+  var box=document.getElementById('cookie'),prefs=document.getElementById('cookie-prefs'),manage=document.getElementById('ck-manage');
+  function getC(){try{return localStorage.getItem('fpr-cookie')}catch(e){return null}}
+  function saveC(val){try{localStorage.setItem('fpr-cookie',val)}catch(e){}box.hidden=true}
+  if(!getC())box.hidden=false;
+  document.getElementById('ck-accept').addEventListener('click',function(){saveC('all')});
+  document.getElementById('ck-reject').addEventListener('click',function(){saveC(prefs.hidden?'essential':JSON.stringify({analytics:document.getElementById('ck-analytics').checked,marketing:document.getElementById('ck-marketing').checked}))});
+  manage.addEventListener('click',function(){var open=prefs.hidden;prefs.hidden=!open;manage.setAttribute('aria-expanded',String(open));document.getElementById('ck-reject').textContent=open?'Save choices':'Essential only';if(open)document.getElementById('ck-analytics').focus()});
+  document.getElementById('cookie-open').addEventListener('click',function(){box.hidden=false;document.getElementById('ck-accept').focus()});
+})();
+</script>
+</body>
+</html>
