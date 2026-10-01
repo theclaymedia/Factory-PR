@@ -362,9 +362,11 @@ body.menu-open .site-header { background: transparent; color: var(--paper); bord
 .cases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(2rem, 6vw, 6.5rem); row-gap: clamp(3.5rem, 7vw, 6.5rem); }
 .case:nth-child(even) { margin-top: clamp(4rem, 9vw, 9rem); }
 .case figure { background: var(--soft); }
-.case img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
-.case-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .35rem 1.5rem; margin-top: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
-.case-meta .case-tags { color: var(--mute); letter-spacing: .12em; }
+.case figure img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.case-meta { margin-top: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
+.case-logo { display: flex; align-items: center; height: 3.75rem; }
+.case-logo img { width: var(--w); height: auto; }
+.case-meta .case-tags { margin-top: .6rem; color: var(--mute); letter-spacing: .12em; }
 .case h3 { margin-top: 1.25rem; font-family: var(--serif-text); letter-spacing: var(--track-text); font-weight: 400; font-size: clamp(1.55rem, 2.5vw, 2.3rem); line-height: 1.1; text-wrap: balance; }
 .case p.case-copy { margin-top: .9rem; color: var(--mute); max-width: 52ch; }
 
@@ -377,9 +379,11 @@ body.menu-open .site-header { background: transparent; color: var(--paper); bord
 .case-film::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(rgba(0,0,0,.25) 0%, rgba(0,0,0,.45) 45%, rgba(0,0,0,.82) 100%); }
 .case-film-inner { padding-block: clamp(2.5rem, 5vw, 4.5rem); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 1.5rem; align-items: end; }
 .case-film-text { grid-column: 1 / span 7; }
-.case-film-text h3 { margin-top: 1rem; font-family: var(--serif); letter-spacing: var(--track-display); font-weight: 400; font-size: clamp(2rem, 4.2vw, 3.75rem); line-height: 1.05; }
+.case-film-text .case-logo { height: auto; }
+.case-film-text .case-logo img { filter: invert(1); }
+.case-film-text h3 { margin-top: 1.5rem; font-family: var(--serif); letter-spacing: var(--track-display); font-weight: 400; font-size: clamp(2rem, 4.2vw, 3.75rem); line-height: 1.05; }
 .case-film-text p.case-copy { margin-top: 1.1rem; max-width: 56ch; color: #e6e6e6; }
-.case-film-text .case-tags { margin-top: 1.25rem; color: #d0d0d0; letter-spacing: .12em; }
+.case-film-text .case-tags { margin-top: 1.1rem; color: #d0d0d0; letter-spacing: .12em; }
 .case-film-control { grid-column: 9 / -1; justify-self: end; }
 .film-toggle { display: inline-flex; align-items: center; gap: .6rem; min-height: 2.75rem; padding: .5rem 0; background: none; border: 0; font-size: .6875rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; }
 .film-toggle svg { width: 1rem; height: 1rem; }
@@ -799,28 +803,28 @@ fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
       <div class="cases">
         <article class="case">
           <figure><img src="assets/work/asos-1.jpg" width="700" height="394" alt="Two models in matching knit sets pose in front of a blue circular backdrop for ASOS." decoding="async"></figure>
-          <p class="case-meta label"><span>ASOS</span><span class="case-tags">PR / VIP / Influencer / Events / Partnerships</span></p>
+          <div class="case-meta"><span class="case-logo"><img src="assets/clients/grid/asos.png" width="285" height="84" alt="ASOS" loading="lazy" decoding="async" style="--w:115px"></span><p class="label case-tags">PR / VIP / Influencer / Events / Partnerships</p></div>
           <h3>Building fashion&rsquo;s most talked about moments</h3>
           <p class="case-copy">As the AOR for ten years, we have expanded ASOS&rsquo; influence in the US through strategic public relations, VIP and influencer partnerships, relevant events and activations, and collaborations.</p>
         </article>
 
         <article class="case">
           <figure><img src="assets/work/henry-rose-2.jpg" width="700" height="394" alt="Michelle Pfeiffer testing a fragrance blotter at a desk surrounded by books." loading="lazy" decoding="async"></figure>
-          <p class="case-meta label"><span>Henry Rose</span><span class="case-tags">PR / Digital / Influencer / VIP / Events</span></p>
+          <div class="case-meta"><span class="case-logo"><img src="assets/clients/grid/henry-rose.png" width="358" height="29" alt="Henry Rose" loading="lazy" decoding="async" style="--w:150px"></span><p class="label case-tags">PR / Digital / Influencer / VIP / Events</p></div>
           <h3>Pioneering the clean fragrance landscape</h3>
           <p class="case-copy">We built, launched, and continue to grow Henry Rose with Michelle Pfeiffer, establishing it as the industry leader and standard in clean, transparent fragrance.</p>
         </article>
 
         <article class="case">
           <figure><img src="assets/work/gu-2.jpg" width="700" height="394" alt="Three models in colorful GU outerwear standing beside the GU logo." loading="lazy" decoding="async"></figure>
-          <p class="case-meta label"><span>GU</span><span class="case-tags">PR / Influencer / Events / Partnerships</span></p>
+          <div class="case-meta"><span class="case-logo"><img src="assets/clients/grid/gu.png" width="171" height="87" alt="GU" loading="lazy" decoding="async" style="--w:88px"></span><p class="label case-tags">PR / Influencer / Events / Partnerships</p></div>
           <h3>Bringing a Japanese fashion powerhouse to the US</h3>
           <p class="case-copy">We introduced GU, Fast Retailing&rsquo;s trend-driven sister brand to UNIQLO, to the U.S. through high-impact PR, social media and content strategy, influencer partnerships, and activations.</p>
         </article>
 
         <article class="case">
           <figure><img src="assets/work/on.jpg" width="2000" height="1125" alt="Roger Federer reclining in a leather chair with a tennis racket, wearing white On sneakers." loading="lazy" decoding="async"></figure>
-          <p class="case-meta label"><span>On</span><span class="case-tags">PR / Events / Influencer</span></p>
+          <div class="case-meta"><span class="case-logo"><img src="assets/clients/grid/on.png" width="99" height="198" alt="On" loading="lazy" decoding="async" style="--w:25px"></span><p class="label case-tags">PR / Events / Influencer</p></div>
           <h3>Launching a challenger brand to market dominance</h3>
           <p class="case-copy">We launched On Running in the U.S. with dynamic media activations, strategic seeding, and immersive experiences, from Alpine press trips to nationwide run clubs and Roger Federer&rsquo;s partnership.</p>
         </article>
@@ -833,10 +837,10 @@ fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
              aria-hidden="true" tabindex="-1"></video>
       <div class="wrap case-film-inner">
         <div class="case-film-text">
-          <p class="label">Fontainebleau Las Vegas</p>
+          <span class="case-logo"><img src="assets/clients/grid/fontainebleau-las-vegas.png" width="288" height="96" alt="Fontainebleau Las Vegas" loading="lazy" decoding="async" style="--w:176px"></span>
+          <p class="label case-tags">Digital / Campaign / Events</p>
           <h3 id="film-title">Redefining hospitality launches</h3>
           <p class="case-copy">Collaborating with in-house teams and key partners, we designed a social strategy that skyrocketed Fontainebleau Las Vegas&rsquo; online presence. Our work fueled an 800% follower increase and massive engagement during the grand opening, New Year&rsquo;s Eve, and Super Bowl events.</p>
-          <p class="label case-tags">Digital / Campaign / Events</p>
         </div>
         <div class="case-film-control">
           <button class="film-toggle" id="film-toggle" type="button" aria-pressed="true">
@@ -851,28 +855,28 @@ fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
       <div class="cases">
         <article class="case">
           <figure><img src="assets/work/loop.jpg" width="2000" height="1125" alt="Close profile of a woman with braided hair wearing a violet Loop earplug." loading="lazy" decoding="async"></figure>
-          <p class="case-meta label"><span>Loop Earplugs</span><span class="case-tags">PR / Events / Influencer</span></p>
+          <div class="case-meta"><span class="case-logo"><img src="assets/clients/grid/loop-earplugs.png" width="272" height="40" alt="Loop Earplugs" loading="lazy" decoding="async" style="--w:150px"></span><p class="label case-tags">PR / Events / Influencer</p></div>
           <h3>Elevating a utility product into a Time 100 wellness brand</h3>
           <p class="case-copy">We redefined hearing protection with Loop Earplugs, transforming it into a must-have lifestyle accessory through a collaboration with the global music festival Tomorrowland and high-profile media.</p>
         </article>
 
         <article class="case">
           <figure><img src="assets/work/21seeds.jpg" width="2000" height="1125" alt="Rachel Bilson holding a cocktail beside bottles of 21Seeds tequila at a poolside table." loading="lazy" decoding="async"></figure>
-          <p class="case-meta label"><span>21Seeds</span><span class="case-tags">PR / Events / Partnerships / Campaign</span></p>
+          <div class="case-meta"><span class="case-logo"><img src="assets/clients/grid/21seeds.png" width="400" height="413" alt="21Seeds" loading="lazy" decoding="async" style="--w:58px"></span><p class="label case-tags">PR / Events / Partnerships / Campaign</p></div>
           <h3>Turning spirits into lifestyle icons</h3>
           <p class="case-copy">With 21Seeds, the female-founded fruit-infused tequila brand, we drive media buzz, events, and brand collaborations, from fashion partnerships to the Serving Summer campaign with Rachel Bilson.</p>
         </article>
 
         <article class="case">
           <figure><img src="assets/work/ikea.jpg" width="700" height="394" alt="A colorful IKEA and Marimekko room set beside a guest in a bucket hat at an IKEA activation." loading="lazy" decoding="async"></figure>
-          <p class="case-meta label"><span>IKEA</span><span class="case-tags">PR / Influencer / Partnerships / Events</span></p>
+          <div class="case-meta"><span class="case-logo"><img src="assets/clients/grid/ikea.png" width="382" height="67" alt="IKEA" loading="lazy" decoding="async" style="--w:149px"></span><p class="label case-tags">PR / Influencer / Partnerships / Events</p></div>
           <h3>Reimagining IKEA as sustainable</h3>
           <p class="case-copy">We redefined IKEA&rsquo;s cultural relevance through bold media opportunities, vast influencer campaigns, and immersive activations like the multi-city Sleepeasy Pop-up.</p>
         </article>
 
         <article class="case">
           <figure><img src="assets/work/tally1.jpg" width="700" height="394" alt="Three Tally Health supplement capsules labeled Amplify, Vitality, and Restore." loading="lazy" decoding="async"></figure>
-          <p class="case-meta label"><span>Tally Health</span><span class="case-tags">PR / Events / Influencer</span></p>
+          <div class="case-meta"><span class="case-logo"><img src="assets/clients/grid/tally-health.png" width="500" height="292" alt="Tally Health" loading="lazy" decoding="async" style="--w:82px"></span><p class="label case-tags">PR / Events / Influencer</p></div>
           <h3>Defining the narrative around biological age</h3>
           <p class="case-copy">We launched Tally Health, co-founded by David Sinclair, as the most coveted platform for longevity science, with its simple cheek swab test to determine biological age.</p>
         </article>
