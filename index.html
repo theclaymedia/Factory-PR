@@ -13,7 +13,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Factory PR">
 <meta property="og:title" content="Factory PR | Independent Marketing Communications Agency">
-<meta property="og:description" content="Brand transformation. An independent marketing communications agency for the brands setting the culture. New York, Los Angeles, Miami.">
+<meta property="og:description" content="Transformation only. An independent marketing communications agency for the brands setting the culture. New York, Los Angeles, Miami.">
 <meta property="og:url" content="https://www.factorypr.com/">
 <meta property="og:image" content="https://www.factorypr.com/assets/video/hero-reel-poster.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -22,7 +22,7 @@
 <link rel="preload" as="image" href="assets/video/hero-reel-poster.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -76,7 +76,7 @@
         "https://www.tiktok.com/@factorypr",
         "https://www.facebook.com/FACTORYPR/"
       ],
-      "slogan": "Brand transformation",
+      "slogan": "Transformation only.",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Services",
@@ -141,52 +141,6 @@
         "@id": "https://www.factorypr.com/#organization"
       },
       "inLanguage": "en-US"
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.factorypr.com/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What kind of agency is Factory PR?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Factory PR is an independent marketing communications agency with offices in New York and Los Angeles and a working presence in Miami. Our work spans six disciplines, and the value is in how they work together."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What services does Factory PR offer?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Six disciplines: public relations and communications, brand positioning, influencer and creator partnerships, social strategy, performance PR, and experiential."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which industries does Factory PR work in?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Factory was built in fashion, where the product, the picture, and the placement are judged together. That training now runs through beauty, hospitality, technology, and consumer brands."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Where is Factory PR located?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "New York: 920 Broadway, 12th Floor, New York, NY 10010. Los Angeles: 8201 Beverly Blvd, Ste 302, Los Angeles, CA 90048. We also keep a working presence in Miami."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do we start working with Factory PR?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Send us the brief: category, timing, and what a win looks like. Two lines is enough to start. A senior member of the team reads every enquiry."
-          }
-        }
-      ]
     }
   ]
 }
@@ -203,6 +157,11 @@
 })();
 </script>
 <style>
+/* Gotham is used when it is installed on the viewer's machine; Montserrat stands in otherwise */
+@font-face { font-family: "Gotham Display"; font-weight: 800 900; src: local("Gotham Black"), local("Gotham-Black"); }
+@font-face { font-family: "Gotham Text"; font-weight: 700; src: local("Gotham Bold"), local("Gotham-Bold"); }
+@font-face { font-family: "Gotham Text"; font-weight: 500; src: local("Gotham Medium"), local("Gotham-Medium"); }
+@font-face { font-family: "Gotham Text"; font-weight: 400; src: local("Gotham Book"), local("Gotham-Book"); }
 /* ---------- Tokens: day is the default (set on the html tag), night is the alternate ---------- */
 :root {
   color-scheme: dark;
@@ -214,10 +173,10 @@
   --accent: #ff5a4d;
   --accent-solid: #e0281f;
   --logo-filter: invert(1);
-  --display: "Big Shoulders Display", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
-  --track-display: .005em;
-  --track-text: .01em;
-  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --display: "Gotham Display", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --track-display: .01em;
+  --track-text: .02em;
+  --sans: "Gotham Text", "Montserrat", "Helvetica Neue", Arial, sans-serif;
   --gutter: clamp(1.25rem, 4vw, 4rem);
   --gap: clamp(1rem, 2vw, 2rem);
   --section: clamp(4.5rem, 9vw, 8.5rem);
@@ -282,12 +241,12 @@ button { cursor: pointer; }
 }
 .label-accent { color: var(--accent); }
 .display {
-  font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-display); font-weight: 800;
-  font-size: clamp(2.6rem, 6.4vw, 5.4rem); line-height: 1;
+  font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-display); font-weight: 900;
+  font-size: clamp(2rem, 4.2vw, 3.8rem); line-height: 1.02;
 }
 .statement {
-  font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-display); font-weight: 800;
-  font-size: clamp(2.1rem, 4.6vw, 3.9rem); line-height: 1.04;
+  font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-display); font-weight: 900;
+  font-size: clamp(1.5rem, 3vw, 2.6rem); line-height: 1.12;
 }
 .statement em { font-style: normal; }
 .hl { background: none; color: var(--accent-solid); }
@@ -365,7 +324,7 @@ button { cursor: pointer; }
 }
 .mobile-menu a.mobile-link {
   display: block; padding-block: .55rem; text-decoration: none;
-  font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-display); font-weight: 800; font-size: clamp(2.4rem, 11vw, 3.6rem); line-height: 1.05;
+  font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-display); font-weight: 900; font-size: clamp(1.8rem, 8vw, 2.6rem); line-height: 1.1;
 }
 .mobile-menu .mobile-meta { display: grid; gap: .4rem; margin-top: 2.5rem; font-size: .95rem; color: var(--mute); }
 .mobile-menu .mobile-meta a { color: var(--fg); }
@@ -394,8 +353,8 @@ body.menu-open .site-header { background: var(--bg); color: var(--fg); border-bo
 .hero .eyebrow span[aria-hidden] { opacity: .7; }
 .hero h1 {
   font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-display); font-weight: 900;
-  font-size: clamp(3.2rem, min(11vw, 20vh), 9.5rem);
-  line-height: .88; text-wrap: balance;
+  font-size: clamp(2.6rem, min(7.4vw, 14vh), 6.6rem);
+  line-height: .96; text-wrap: balance;
 }
 .hero-lede {
   margin-top: clamp(1.1rem, 3vh, 2rem); max-width: 36rem;
@@ -443,8 +402,8 @@ body.menu-open .site-header { background: var(--bg); color: var(--fg); border-bo
 .panel-logo { display: flex; align-items: center; min-height: 3rem; margin-top: .5rem; }
 .panel-logo img { width: var(--w); height: auto; filter: invert(1); }
 .panel h3 {
-  font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-display); font-weight: 800;
-  font-size: clamp(2.4rem, 6vw, 5.6rem); line-height: 1; max-width: 13em; text-wrap: balance;
+  font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-display); font-weight: 900;
+  font-size: clamp(1.8rem, 4.2vw, 3.8rem); line-height: 1.04; max-width: 22em; text-wrap: balance;
 }
 .panel .tags { color: #e2e2e2; letter-spacing: .12em; }
 .panel-details { margin-top: .5rem; max-width: 40rem; }
@@ -468,13 +427,31 @@ body.menu-open .site-header { background: var(--bg); color: var(--fg); border-bo
 
 /* ---------- Services ---------- */
 .services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--fg); }
-.service { padding: clamp(2rem, 3.5vw, 3.25rem) clamp(1.25rem, 2.5vw, 2.5rem) clamp(2.25rem, 4vw, 3.5rem) 0; border-bottom: 1px solid var(--line); }
+.service { padding: clamp(1.5rem, 2.5vw, 2.25rem) clamp(1.25rem, 2.5vw, 2.5rem) clamp(1.5rem, 2.5vw, 2.25rem) 0; border-bottom: 1px solid var(--line); }
 .service:not(:nth-child(3n + 1)) { padding-left: clamp(1.25rem, 2.5vw, 2.5rem); border-left: 1px solid var(--line); }
-.service-icon { width: 5rem; height: 5rem; margin-bottom: 1.75rem; color: var(--accent-solid); fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.service-icon-fill { fill: currentColor; stroke: none; }
-.service p { margin-top: .7rem; color: var(--mute); font-size: .9375rem; max-width: 38ch; }
+.service-title { margin: 0; }
+.service-toggle {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; width: 100%;
+  padding: 0; background: none; border: 0; text-align: left; font: inherit; color: inherit; cursor: pointer;
+}
+.service-toggle::after {
+  content: ""; flex: none; width: .9rem; height: .9rem; margin-top: .45em; color: var(--accent-solid);
+  background:
+    linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 2px 100% no-repeat;
+  transition: transform .25s ease;
+}
+.service-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+.service-body > div { overflow: hidden; }
+.service-body p { margin-top: .9rem; color: var(--mute); font-size: .9375rem; max-width: 38ch; }
+.service.is-open .service-body { grid-template-rows: 1fr; }
+.service.is-open .service-toggle::after { transform: rotate(45deg); }
+@media (hover: hover) and (pointer: fine) {
+  .service:hover .service-body, .service:focus-within .service-body { grid-template-rows: 1fr; }
+  .service:hover .service-toggle::after, .service:focus-within .service-toggle::after { transform: rotate(45deg); }
+}
 .sec-intro { max-width: 44ch; }
-.service h3 { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-text); font-weight: 800; font-size: clamp(1.7rem, 2.6vw, 2.25rem); line-height: 1; }
+.service h3, .service-toggle { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-text); font-weight: 800; font-size: clamp(1.1rem, 1.5vw, 1.35rem); line-height: 1.2; }
 
 /* ---------- Clients: one endless row ---------- */
 .marquee { overflow: hidden; border-block: 1px solid var(--line); }
@@ -486,28 +463,9 @@ body.menu-open .site-header { background: var(--bg); color: var(--fg); border-bo
 /* ---------- Awards ---------- */
 .awards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(2rem, 5vw, 5rem); border-top: 1px solid var(--fg); }
 .awards li { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--gap); align-items: baseline; padding-block: 1.1rem; border-bottom: 1px solid var(--line); }
-.awards .award-name { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-text); font-weight: 800; font-size: clamp(1.35rem, 1.9vw, 1.7rem); line-height: 1.05; }
+.awards .award-name { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-text); font-weight: 800; font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.2; }
 .awards .award-note { grid-column: 1; margin-top: .2rem; color: var(--mute); font-size: .9375rem; }
 .awards time { grid-column: 2; grid-row: 1; font-size: .9375rem; font-variant-numeric: tabular-nums; color: var(--accent); }
-
-/* ---------- FAQ ---------- */
-.faq-list { border-top: 1px solid var(--fg); }
-.faq-list details { border-bottom: 1px solid var(--line); }
-.faq-list summary {
-  display: flex; justify-content: space-between; align-items: center; gap: 1.5rem;
-  padding-block: 1.25rem; cursor: pointer; list-style: none;
-  font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-text); font-weight: 800; font-size: clamp(1.35rem, 2vw, 1.8rem); line-height: 1.05;
-}
-.faq-list summary::-webkit-details-marker { display: none; }
-.faq-list summary::after {
-  content: ""; flex: none; width: 1rem; height: 1rem; color: var(--accent-solid);
-  background:
-    linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat,
-    linear-gradient(currentColor, currentColor) center / 2px 100% no-repeat;
-  transition: transform .25s ease;
-}
-.faq-list details[open] summary::after { transform: rotate(45deg); }
-.faq-list details p { padding-bottom: 1.5rem; max-width: 68ch; color: var(--mute); }
 
 /* ---------- Contact ---------- */
 .contact-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2.25rem, 6vw, 5.5rem); }
@@ -554,7 +512,7 @@ body.menu-open .site-header { background: var(--bg); color: var(--fg); border-bo
   border: 1px solid var(--fg); padding: 1.5rem;
   box-shadow: 0 18px 50px rgba(0,0,0,.35);
 }
-.cookie h2 { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-text); font-weight: 800; font-size: 1.8rem; line-height: 1; }
+.cookie h2 { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-text); font-weight: 800; font-size: 1.25rem; line-height: 1.15; }
 .cookie p { margin-top: .75rem; font-size: .875rem; line-height: 1.55; color: var(--mute); }
 .cookie-row { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: .6rem; }
 .cookie .btn { min-height: 2.75rem; padding: .6rem 1rem; font-size: .6875rem; }
@@ -602,13 +560,12 @@ body.menu-open .site-header { background: var(--bg); color: var(--fg); border-bo
   .header-cta { min-height: 2.5rem; padding: .5rem .9rem; letter-spacing: .12em; }
   .header-right { gap: .6rem; }
   .services-grid { grid-template-columns: 1fr; }
-  .service, .service:nth-child(even) { padding: 1.5rem 0; border-left: 0; display: flex; align-items: flex-start; gap: 1.25rem; }
-  .service-icon { width: 3.75rem; height: 3.75rem; margin: 0; flex: none; }
+  .service, .service:nth-child(even) { padding: 1.25rem 0; border-left: 0; }
   .contact-form { grid-template-columns: 1fr; }
   .cookie { left: .75rem; bottom: .75rem; width: calc(100vw - 1.5rem); padding: 1.25rem; }
   .hero .eyebrow-lead { flex-basis: 100%; }
   .hero .eyebrow-break { display: none; }
-  .hero h1 { font-size: clamp(2.5rem, min(12.6vw, 11vh), 5rem); }
+  .hero h1 { font-size: clamp(1.7rem, min(8.6vw, 7vh), 3rem); }
   .hero-toggle span, .panel-toggle span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .hero-toggle, .panel-toggle { min-width: 2.75rem; justify-content: flex-end; }
 }
@@ -677,7 +634,7 @@ body.menu-open .site-header { background: var(--bg); color: var(--fg); border-bo
            aria-hidden="true" tabindex="-1"></video>
     <div class="hero-inner">
       <p class="label eyebrow"><span class="eyebrow-lead">Independent Marketing Communications</span><span class="eyebrow-break" aria-hidden="true">/</span><span>New York</span><span aria-hidden="true">/</span><span>Los Angeles</span><span aria-hidden="true">/</span><span>Miami</span></p>
-      <h1 id="hero-title">Brand transformation</h1>
+      <h1 id="hero-title">Transformation only.</h1>
       <p class="hero-lede">We don&rsquo;t do quiet launches. Factory is an independent marketing communications agency for the brands setting the culture.</p>
       <div class="hero-actions">
         <a class="btn btn-accent" href="#contact">Start a conversation</a>
@@ -783,59 +740,34 @@ body.menu-open .site-header { background: var(--bg); color: var(--fg); border-bo
   <section class="section" id="services" aria-labelledby="services-title">
     <div class="wrap">
       <div class="sec-head" data-reveal>
-        <p class="label label-accent">Services</p>
-        <h2 class="display" id="services-title">What we do</h2>
+        <h2 class="display" id="services-title">Services</h2>
         <p class="body-lg muted sec-intro">Our work spans six disciplines. Each has its own craft. The value is in how they work together.</p>
       </div>
 
       <div class="services-grid" data-reveal>
         <article class="service">
-          <svg class="service-icon service-icon-fill" viewBox="0 0 259.277 259.277" aria-hidden="true" focusable="false"><path d="m191.337,66.272c-0.251-3.305-3.142-5.777-6.438-5.527-3.304,0.252-5.778,3.134-5.526,6.438l.166,2.177-168.2,57.566c-1.071-2.08-3.315-3.426-5.793-3.24-3.304,0.252-5.778,3.135-5.526,6.438l1.956,25.674c0.239,3.149 2.869,5.545 5.976,5.545 0.153,0 0.308-0.006 0.463-0.018 2.451-0.187 4.442-1.823 5.206-4.003l17.723,3.385c0.782,20.01 17.296,36.05 37.494,36.05 14.85,0 28.351-8.886 34.319-22.336l85.633,16.354 .17,2.229c0.239,3.149 2.869,5.545 5.976,5.545 0.153,0 0.308-0.006 0.463-0.018 3.304-0.252 5.778-3.134 5.526-6.438l-9.588-125.821zm-122.502,118.486c-12.78,0-23.395-9.439-25.244-21.711l47.293,9.032c-4.522,7.722-12.906,12.679-22.049,12.679zm-55.648-39.734l-.449-5.894 167.742-57.409 7.363,96.658-174.656-33.355z"/><path d="m224.6,133.031l29.134-2.219c3.304-0.251 5.778-3.134 5.526-6.438-0.251-3.305-3.139-5.784-6.438-5.527l-29.134,2.219c-3.304,0.251-5.778,3.134-5.526,6.438 0.239,3.149 2.869,5.545 5.976,5.545 0.152,0 0.306-0.006 0.462-0.018z"/><path d="m224.917,95.431l23.208-17.031c2.672-1.96 3.248-5.716 1.287-8.387-1.959-2.671-5.716-3.247-8.387-1.288l-23.208,17.031c-2.672,1.96-3.248,5.716-1.287,8.387 1.175,1.602 2.996,2.451 4.842,2.451 1.233,0 2.476-0.379 3.545-1.163z"/><path d="m255.218,171.504l-25.521-13.318c-2.938-1.532-6.563-0.394-8.096,2.543s-0.395,6.562 2.543,8.095l25.521,13.318c0.887,0.462 1.836,0.682 2.771,0.682 2.164,0 4.254-1.174 5.324-3.226 1.534-2.936 0.395-6.561-2.542-8.094z"/></svg>
-          <div class="service-text">
-            <h3>Public Relations &amp; Communications</h3>
-            <p>Media strategy, press office, editorial planning, product placement, and launch communications for brands with a clear point to make.</p>
-          </div>
+          <h3 class="service-title"><button class="service-toggle" type="button" id="svc-1-btn" aria-expanded="false" aria-controls="svc-1">Public Relations &amp; Communications</button></h3>
+          <div class="service-body" id="svc-1" role="region" aria-labelledby="svc-1-btn"><div><p>Media strategy, press office, editorial planning, product placement, and launch communications for brands with a clear point to make.</p></div></div>
         </article>
         <article class="service">
-          <svg class="service-icon service-icon-fill" viewBox="0 -3 36 36" aria-hidden="true" focusable="false"><g transform="translate(-465.000000, -360.000000)"><path d="M478.951,373.451 L482.475,370.348 L481.549,374.951 L483.281,375.951 L484.597,366.673 L477.219,372.451 L478.951,373.451 L478.951,373.451 Z M480,388 C472.819,388 467,382.181 467,375 C467,367.82 472.819,362 480,362 C487.181,362 493,367.82 493,375 C493,382.181 487.181,388 480,388 L480,388 Z M480.006,360.012 C471.725,360.012 465.012,366.726 465.012,375.006 C465.012,383.287 471.725,390 480.006,390 C488.287,390 495,383.287 495,375.006 C495,366.726 488.287,360.012 480.006,360.012 L480.006,360.012 Z M481,375.5 C481,374.672 480.328,374 479.5,374 C478.672,374 478,374.672 478,375.5 C478,376.328 478.672,377 479.5,377 C480.328,377 481,376.328 481,375.5 L481,375.5 Z M476.525,380.652 L477.451,376.049 L475.719,375.049 L474.404,384.327 L481.781,378.549 L480.049,377.549 L476.525,380.652 L476.525,380.652 Z"></path></g></svg>
-          <div class="service-text">
-            <h3>Brand Positioning</h3>
-            <p>The language, hierarchy, and strategic clarity that make a brand easier to understand, present, defend, and grow.</p>
-          </div>
+          <h3 class="service-title"><button class="service-toggle" type="button" id="svc-2-btn" aria-expanded="false" aria-controls="svc-2">Brand Positioning</button></h3>
+          <div class="service-body" id="svc-2" role="region" aria-labelledby="svc-2-btn"><div><p>The language, hierarchy, and strategic clarity that make a brand easier to understand, present, defend, and grow.</p></div></div>
         </article>
         <article class="service">
-          <svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-            <path d="M24 6l4.6 11.6 12.4.9-9.5 8 3 12.1L24 32l-10.5 6.6 3-12.1-9.5-8 12.4-.9z"/>
-          </svg>
-          <div class="service-text">
-            <h3>Influencer &amp; Creator Partnerships</h3>
-            <p>Creator, VIP, and talent programs planned around credibility, fit, timing, and content people want to save or share.</p>
-          </div>
+          <h3 class="service-title"><button class="service-toggle" type="button" id="svc-3-btn" aria-expanded="false" aria-controls="svc-3">Influencer &amp; Creator Partnerships</button></h3>
+          <div class="service-body" id="svc-3" role="region" aria-labelledby="svc-3-btn"><div><p>Creator, VIP, and talent programs planned around credibility, fit, timing, and content people want to save or share.</p></div></div>
         </article>
         <article class="service">
-          <svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-            <path d="M8 9h21a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H19l-7 6v-6H8a3 3 0 0 1-3-3V12a3 3 0 0 1 3-3z"/>
-            <path d="M37 19h3a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3h-2v6l-7-6h-8"/>
-            <path d="M11.5 16h14M11.5 21h9"/>
-          </svg>
-          <div class="service-text">
-            <h3>Social Strategy</h3>
-            <p>Platform strategy, voice, content direction, and community planning, so the brand shows up with intention instead of volume.</p>
-          </div>
+          <h3 class="service-title"><button class="service-toggle" type="button" id="svc-4-btn" aria-expanded="false" aria-controls="svc-4">Social Strategy</button></h3>
+          <div class="service-body" id="svc-4" role="region" aria-labelledby="svc-4-btn"><div><p>Platform strategy, voice, content direction, and community planning, so the brand shows up with intention instead of volume.</p></div></div>
         </article>
         <article class="service">
-          <svg class="service-icon service-icon-fill" viewBox="0 0 490 490" aria-hidden="true" focusable="false"><path d="M440,450V100c0-5.522-4.477-10-10-10h-70c-5.523,0-10,4.478-10,10v350h-10V190c0-5.522-4.477-10-10-10h-70 c-5.523,0-10,4.478-10,10v260h-10V250c0-5.522-4.477-10-10-10h-70c-5.523,0-10,4.478-10,10v200h-10V320c0-5.522-4.477-10-10-10 H60c-5.523,0-10,4.478-10,10v130H0v20h490v-20H440z M120,450H70v-75h50V450z M120,355H70v-25h50V355z M220,450h-50V305h50V450z M220,285h-50v-25h50V285z M320,450h-50V245h50V450z M320,225h-50v-25h50V225z M420,450h-50V155h50V450z M420,135h-50v-25h50V135 z"/><path d="M57.072,282.072L285,54.143V90h20V30c0-5.522-4.477-10-10-10h-65v20h40.857L42.929,267.929L57.072,282.072z"/></svg>
-          <div class="service-text">
-            <h3>Performance PR</h3>
-            <p>Affiliate and commerce-aware media programs that connect editorial influence to traffic, consideration, and sales.</p>
-          </div>
+          <h3 class="service-title"><button class="service-toggle" type="button" id="svc-5-btn" aria-expanded="false" aria-controls="svc-5">Performance PR</button></h3>
+          <div class="service-body" id="svc-5" role="region" aria-labelledby="svc-5-btn"><div><p>Affiliate and commerce-aware media programs that connect editorial influence to traffic, consideration, and sales.</p></div></div>
         </article>
         <article class="service">
-          <svg class="service-icon service-icon-fill" viewBox="0 0 512.002 512.002" aria-hidden="true" focusable="false"><path d="M511.959,448.332c-0.424-4.512-3.898-8.138-8.386-8.758l-79.168-10.917l-42.628-126.593 c17.36-8.127,31.38-21.763,40.027-39.19c10.11-20.375,11.682-43.469,4.421-65.025c-0.146-0.437-0.324-0.863-0.532-1.276 l-44.656-88.671c-2.185-4.339-7.228-6.414-11.836-4.861L256,141.16l-113.2-38.118c-4.603-1.55-9.651,0.521-11.836,4.861 l-12.603,25.025c-2.425,4.817-0.488,10.687,4.329,13.112c4.814,2.424,10.687,0.488,13.111-4.329l8.794-17.46l100.262,33.761 l-16.402,88.588c-9.398,27.011-34.834,44.058-62.029,44.056c-6.926-0.001-13.973-1.108-20.891-3.437 c-16.614-5.594-30.054-17.324-37.845-33.025c-7.792-15.703-9.002-33.5-3.408-50.113c1.721-5.111-1.026-10.649-6.137-12.369 c-5.111-1.718-10.649,1.027-12.369,6.137c-7.259,21.557-5.689,44.649,4.421,65.025c8.647,17.427,22.666,31.062,40.027,39.19 L87.596,428.656L8.43,439.573c-4.489,0.62-7.962,4.245-8.387,8.758c-0.424,4.512,2.31,8.722,6.604,10.169l145.875,49.119 c9.535,3.214,17.121-9.039,10.028-16.148l-56.44-56.576l42.625-126.585c5.901,1.269,11.868,1.912,17.82,1.912 c12.952,0,25.83-2.993,37.772-8.919c20.375-10.11,35.594-27.55,42.852-49.106c0.147-0.437,0.264-0.885,0.349-1.338l8.474-45.764 l8.472,45.764c0.083,0.454,0.201,0.901,0.349,1.338c11.961,35.522,45.207,57.987,80.771,57.987c5.854,0,11.774-0.622,17.671-1.883 l42.626,126.593l-56.44,56.574c-7.091,7.108,0.491,19.364,10.028,16.148l145.876-49.119 C509.649,457.055,512.383,452.845,511.959,448.332z M119.394,475.859l-67.156-22.612l39.204-5.407L119.394,475.859z M283.545,246.601l-16.402-88.588l100.263-33.761l40.524,80.467c5.351,16.431,4.073,33.974-3.618,49.477 c-7.792,15.703-21.233,27.433-37.845,33.027C332.382,298.694,295.336,280.49,283.545,246.601z M392.608,475.859l27.953-28.018 l39.204,5.407L392.608,475.859z"/><path d="M387.184,206.968c-0.146-0.437-0.324-0.864-0.532-1.276l-20.004-39.721c-2.425-4.816-8.294-6.755-13.111-4.329 c-4.817,2.425-6.754,8.295-4.329,13.112l19.666,39.05c1.819,5.904,1.315,12.174-1.441,17.729 c-2.85,5.745-7.767,10.035-13.845,12.081c-5.11,1.721-7.858,7.259-6.138,12.369c1.373,4.077,5.176,6.651,9.252,6.651 c1.034,0,2.084-0.165,3.118-0.514c11.02-3.71,19.937-11.491,25.105-21.908C390.094,229.796,390.897,217.99,387.184,206.968z"/><path d="M158.417,243.617c-6.078-2.047-10.994-6.337-13.845-12.081c-2.756-5.555-3.261-11.825-1.441-17.729l19.666-39.052 c2.425-4.817,0.488-10.687-4.329-13.112c-4.813-2.427-10.686-0.488-13.111,4.329l-20.004,39.721 c-0.208,0.411-0.387,0.838-0.532,1.276c-3.713,11.021-2.908,22.828,2.26,33.245c5.168,10.416,14.085,18.197,25.105,21.909 c1.034,0.349,2.084,0.514,3.118,0.514c4.076-0.001,7.88-2.575,9.252-6.651C166.275,250.876,163.527,245.338,158.417,243.617z"/><path d="M272.029,57.542c-0.198-15.233-1.617-30.57-4.218-45.587c-0.919-5.313-5.972-8.873-11.286-7.954 c-5.314,0.92-8.875,5.973-7.954,11.287c2.424,14.003,3.748,28.305,3.933,42.509c0.204,15.713-0.978,31.554-3.516,47.083 c-0.871,5.322,2.739,10.342,8.06,11.211c0.532,0.087,1.062,0.129,1.587,0.129c4.698,0,8.842-3.402,9.625-8.19 C270.983,91.379,272.251,74.392,272.029,57.542z"/><path d="M224.723,73.164c-9.722-15.172-23.675-21.676-31.126-24.203c-5.101-1.729-10.649,1.005-12.382,6.112 c-1.731,5.105,1.005,10.649,6.112,12.381c5.032,1.707,14.445,6.085,20.956,16.245c4.905,7.655,6.087,15.359,6.214,20.475 c0.134,5.308,4.477,9.52,9.756,9.52c0.082,0,0.167-0.001,0.249-0.003c5.391-0.135,9.652-4.614,9.518-10.005 C233.829,96.085,232.061,84.617,224.723,73.164z"/><path d="M338.719,60.589c-6.246-0.156-22.276,0.773-36.326,12.922c-12.174,10.525-16.168,23.571-17.466,30.411 c-1.004,5.299,2.476,10.408,7.773,11.415c0.616,0.116,1.228,0.173,1.832,0.173c4.597,0,8.692-3.262,9.58-7.945 c0.825-4.344,3.357-12.627,11.053-19.282c8.889-7.685,19.097-8.282,23.048-8.172c0.086,0.001,0.172,0.003,0.258,0.003 c5.275,0,9.618-4.206,9.755-9.511C348.366,65.211,344.11,60.729,338.719,60.589z"/><path d="M302.327,12.972c-5.746,0-10.421,4.675-10.421,10.421s4.675,10.421,10.421,10.421s10.421-4.675,10.421-10.421 S308.074,12.972,302.327,12.972z"/><path d="M221.648,19.282c-5.746,0-10.421,4.675-10.421,10.421s4.675,10.421,10.421,10.421c5.746,0,10.421-4.675,10.421-10.421 S227.394,19.282,221.648,19.282z"/></svg>
-          <div class="service-text">
-            <h3>Experiential</h3>
-            <p>Events, launches, retail programs, and live brand experiences that give people a reason to show up and remember why they came.</p>
-          </div>
+          <h3 class="service-title"><button class="service-toggle" type="button" id="svc-6-btn" aria-expanded="false" aria-controls="svc-6">Experiential</button></h3>
+          <div class="service-body" id="svc-6" role="region" aria-labelledby="svc-6-btn"><div><p>Events, launches, retail programs, and live brand experiences that give people a reason to show up and remember why they came.</p></div></div>
         </article>
       </div>
     </div>
@@ -896,38 +828,6 @@ body.menu-open .site-header { background: var(--bg); color: var(--fg); border-bo
         <li><span class="award-name">PR News Platinum PR</span><span class="award-note">Finalist, Agency of the Year</span><time datetime="2022">2022</time></li>
         <li><span class="award-name">Inc. 5000</span><span class="award-note">America&rsquo;s Fastest-Growing Private Companies</span><time datetime="2021">2021</time></li>
       </ul>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section" id="faq" aria-labelledby="faq-title" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <p class="label label-accent">Questions</p>
-        <h2 class="display" id="faq-title">Good to know</h2>
-      </div>
-      <div class="faq-list" data-reveal>
-        <details>
-          <summary>What kind of agency is Factory PR?</summary>
-          <p>Factory PR is an independent marketing communications agency with offices in New York and Los Angeles and a working presence in Miami. Our work spans six disciplines, and the value is in how they work together.</p>
-        </details>
-        <details>
-          <summary>What services does Factory PR offer?</summary>
-          <p>Six disciplines: public relations and communications, brand positioning, influencer and creator partnerships, social strategy, performance PR, and experiential.</p>
-        </details>
-        <details>
-          <summary>Which industries does Factory PR work in?</summary>
-          <p>Factory was built in fashion, where the product, the picture, and the placement are judged together. That training now runs through beauty, hospitality, technology, and consumer brands.</p>
-        </details>
-        <details>
-          <summary>Where is Factory PR located?</summary>
-          <p>New York: 920 Broadway, 12th Floor, New York, NY 10010. Los Angeles: 8201 Beverly Blvd, Ste 302, Los Angeles, CA 90048. We also keep a working presence in Miami.</p>
-        </details>
-        <details>
-          <summary>How do we start working with Factory PR?</summary>
-          <p>Send us the brief: category, timing, and what a win looks like. Two lines is enough to start. A senior member of the team reads every enquiry.</p>
-        </details>
-      </div>
     </div>
   </section>
 
@@ -1152,6 +1052,16 @@ body.menu-open .site-header { background: var(--bg); color: var(--fg); border-bo
   } else {
     revealEls.forEach(function (el) { el.classList.add('is-in'); });
   }
+
+  /* Services: tap or click to reveal; desktop also reveals on hover */
+  doc.querySelectorAll('.service-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.service');
+      var open = !item.classList.contains('is-open');
+      item.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
 
   /* Endless client logo row */
   var marquee = doc.getElementById('logo-marquee');
